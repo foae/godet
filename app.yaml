@@ -1,0 +1,16 @@
+runtime: go111
+
+env_variables:
+  BUCKET_NAME: "your-bucket-gcp"
+
+handlers:
+  - url: /.*
+    script: auto
+    secure: always
+
+  - url: /*
+    script: auto
+    secure: always
+
+inbound_services:
+  - warmup

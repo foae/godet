@@ -33,7 +33,7 @@ func multipartMessageBodyDataLen(proto int, withOrigDgram bool, b []byte, exts [
 }
 
 // multipartMessageOrigDatagramLen takes b as an original datagram,
-// and returns a required length for a padded orignal datagram in wire
+// and returns a required length for a padded original datagram in wire
 // format.
 func multipartMessageOrigDatagramLen(proto int, b []byte) int {
 	roundup := func(b []byte, align int) int {
@@ -43,7 +43,7 @@ func multipartMessageOrigDatagramLen(proto int, b []byte) int {
 			return 128
 		}
 		r := len(b)
-		return (r + align - 1) & ^(align - 1)
+		return (r + align - 1) &^ (align - 1)
 	}
 	switch proto {
 	case iana.ProtocolICMP:
